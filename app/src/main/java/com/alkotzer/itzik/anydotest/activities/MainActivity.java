@@ -1,12 +1,15 @@
 package com.alkotzer.itzik.anydotest.activities;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.Explode;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 import com.alkotzer.itzik.anydotest.R;
@@ -27,26 +30,30 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        setupWindowAnimations();
         setContentView(R.layout.activity_main);
+
         mConnectionManager = new WebSockectConnectionManager();
 
         mAdapter = new BasketItemsListAdapter(MainActivity.this);
         mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(final int color)
+            public void onItemClick(View view, final int color)
             {
                 if(mConnectionManager.isPaused())
                 {
                     Intent intent = JustBackgroundColorActivity.crearteIntent(MainActivity.this, color);
-                    startActivity(intent);
+                    ActivityOptions options = ActivityOptions
+                            .makeSceneTransitionAnimation(MainActivity.this, view, "robot");
+                    startActivity(intent, options.toBundle());
                 }
             }
         });
-        final RecyclerView list = (RecyclerView) findViewById(R.id.basket_list);
+        final RecyclerView list = findViewById(R.id.basket_list);
         list.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         list.setAdapter(mAdapter);
 
-        final Button enableConnection = (Button) findViewById(R.id.pause_connection);
+        final Button enableConnection = findViewById(R.id.pause_connection);
         enableConnection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v)
@@ -91,5 +98,11 @@ public class MainActivity extends AppCompatActivity
     {
         super.onPause();
         mConnectionManager.disconnect();
+    }
+
+    private void setupWindowAnimations()
+    {
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().setExitTransition(new Explode());
     }
 }

@@ -69,7 +69,7 @@ public void setOnItemClickListener(OnItemClickListener listener)
             {
                 if(mListener != null)
                 {
-                    mListener.onItemClick(bagColor);
+                    mListener.onItemClick(holder.mBagColor,bagColor);
                 }
             }
         });

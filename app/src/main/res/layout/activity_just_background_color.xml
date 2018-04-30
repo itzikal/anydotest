@@ -8,4 +8,10 @@
     android:layout_height="match_parent"
     tools:context="com.alkotzer.itzik.anydotest.activities.JustBackgroundColorActivity">
 
+
+    <!--<View -->
+        <!--android:id="@+id/robot"-->
+        <!--android:background="@drawable/bag_circle"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"></View>-->
 </android.support.constraint.ConstraintLayout>
