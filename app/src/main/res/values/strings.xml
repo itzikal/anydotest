@@ -2,4 +2,5 @@
     <string name="app_name">AnydoTest</string>
     <string name="super_do_market">Super.do Market!</string>
     <string name="pause_connection">Pause connection</string>
+    <string name="resume_connection">Resume Connection</string>
 </resources>

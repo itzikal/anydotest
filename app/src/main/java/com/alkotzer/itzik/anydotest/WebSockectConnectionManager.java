@@ -89,4 +89,10 @@ public class WebSockectConnectionManager implements ConnectionManager
     public void resume(){
         mIsPaused = false;
     }
+
+    @Override
+    public boolean isPaused()
+    {
+        return mIsPaused;
+    }
 }

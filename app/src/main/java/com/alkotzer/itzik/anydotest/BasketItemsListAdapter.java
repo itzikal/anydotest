@@ -22,11 +22,17 @@ public class BasketItemsListAdapter extends RecyclerView.Adapter<BasketItemsList
     private static final String LOG_TAG = BasketItemsListAdapter.class.getSimpleName();
     private final ArrayList<BasketItem> mItem = new ArrayList<>();
     private Context mContext;
+    private OnItemClickListener mListener;
 
     public BasketItemsListAdapter(final Context context)
     {
         mContext = context;
     }
+public void setOnItemClickListener(OnItemClickListener listener)
+{
+
+    mListener = listener;
+}
 
     @NonNull
     @Override
@@ -52,6 +58,17 @@ public class BasketItemsListAdapter extends RecyclerView.Adapter<BasketItemsList
         holder.mBagColor.getBackground().setColorFilter(color, PorterDuff.Mode.ADD);
         holder.mItemName.setText(basketItem.getName());
         holder.mItemWeight.setText(basketItem.getWeight());
+        final int bagColor = color;
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v)
+            {
+                if(mListener != null)
+                {
+                    mListener.onItemClick(bagColor);
+                }
+            }
+        });
 
     }
 

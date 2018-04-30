@@ -1,10 +1,13 @@
 package com.alkotzer.itzik.anydotest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -20,9 +23,38 @@ public class MainActivity extends AppCompatActivity
         mConnectionManager = new WebSockectConnectionManager();
 
         mAdapter = new BasketItemsListAdapter(MainActivity.this);
+        mAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(final int color)
+            {
+                if(mConnectionManager.isPaused())
+                {
+                    Intent intent = JustBackgroundColorActivity.crearteIntent(MainActivity.this, color);
+                    startActivity(intent);
+                }
+            }
+        });
         final RecyclerView list = (RecyclerView) findViewById(R.id.basket_list);
         list.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         list.setAdapter(mAdapter);
+
+        final Button enableConnection = (Button) findViewById(R.id.pause_connection);
+        enableConnection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v)
+            {
+                if(mConnectionManager.isPaused())
+                {
+                    mConnectionManager.resume();
+                    enableConnection.setText(R.string.pause_connection);
+                }
+                else
+                {
+                    mConnectionManager.pause();
+                    enableConnection.setText(R.string.resume_connection);
+                }
+            }
+        });
     }
 
     @Override

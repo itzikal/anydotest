@@ -9,4 +9,6 @@ interface ConnectionManager
     void connect(OnItemReceivedListener listener);
     void disconnect();
     void pause();
+    void resume();
+    boolean isPaused();
 }
