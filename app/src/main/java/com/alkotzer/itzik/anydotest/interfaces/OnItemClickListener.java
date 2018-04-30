@@ -1,4 +1,4 @@
-package com.alkotzer.itzik.anydotest;
+package com.alkotzer.itzik.anydotest.interfaces;
 
 /**
  * Created by itzikalkotzer on 30/04/2018.

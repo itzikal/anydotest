@@ -1,4 +1,4 @@
-package com.alkotzer.itzik.anydotest;
+package com.alkotzer.itzik.anydotest.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.alkotzer.itzik.anydotest.R;
+import com.alkotzer.itzik.anydotest.interfaces.OnItemClickListener;
+import com.alkotzer.itzik.anydotest.model.BasketItem;
 
 import java.util.ArrayList;
 

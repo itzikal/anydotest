@@ -1,4 +1,4 @@
-package com.alkotzer.itzik.anydotest;
+package com.alkotzer.itzik.anydotest.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.alkotzer.itzik.anydotest.R;
+import com.alkotzer.itzik.anydotest.adapters.BasketItemsListAdapter;
+import com.alkotzer.itzik.anydotest.interfaces.ConnectionManager;
+import com.alkotzer.itzik.anydotest.interfaces.OnItemClickListener;
+import com.alkotzer.itzik.anydotest.interfaces.OnItemReceivedListener;
+import com.alkotzer.itzik.anydotest.model.BasketItem;
+import com.alkotzer.itzik.anydotest.network.WebSockectConnectionManager;
 
 public class MainActivity extends AppCompatActivity
 {

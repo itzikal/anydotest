@@ -1,7 +1,10 @@
-package com.alkotzer.itzik.anydotest;
+package com.alkotzer.itzik.anydotest.network;
 
 import android.util.Log;
 
+import com.alkotzer.itzik.anydotest.interfaces.ConnectionManager;
+import com.alkotzer.itzik.anydotest.interfaces.OnItemReceivedListener;
+import com.alkotzer.itzik.anydotest.model.BasketItem;
 import com.google.gson.Gson;
 
 import okhttp3.OkHttpClient;

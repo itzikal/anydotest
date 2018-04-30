@@ -1,4 +1,4 @@
-package com.alkotzer.itzik.anydotest;
+package com.alkotzer.itzik.anydotest.model;
 
 import com.google.gson.annotations.SerializedName;
 
