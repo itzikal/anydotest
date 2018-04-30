@@ -32,11 +32,12 @@ public class BasketItemsListAdapter extends RecyclerView.Adapter<BasketItemsList
     {
         mContext = context;
     }
-public void setOnItemClickListener(OnItemClickListener listener)
-{
 
-    mListener = listener;
-}
+    public void setOnItemClickListener(OnItemClickListener listener)
+    {
+
+        mListener = listener;
+    }
 
     @NonNull
     @Override
@@ -57,19 +58,20 @@ public void setOnItemClickListener(OnItemClickListener listener)
         }
         catch (Exception e)
         {
-            Log.e(LOG_TAG, "onBindViewHolder(), Failed to create color:"+ basketItem.getBagColor(),e);
+            Log.e(LOG_TAG, "onBindViewHolder(), Failed to create color:" + basketItem.getBagColor(), e);
         }
         holder.mBagColor.getBackground().setColorFilter(color, PorterDuff.Mode.ADD);
         holder.mItemName.setText(basketItem.getName());
         holder.mItemWeight.setText(basketItem.getWeight());
         final int bagColor = color;
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(final View v)
             {
-                if(mListener != null)
+                if (mListener != null)
                 {
-                    mListener.onItemClick(holder.mBagColor,bagColor);
+                    mListener.onItemClick(holder.mBagColor, bagColor);
                 }
             }
         });

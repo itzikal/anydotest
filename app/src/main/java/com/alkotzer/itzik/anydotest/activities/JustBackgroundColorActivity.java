@@ -29,8 +29,5 @@ public class JustBackgroundColorActivity extends AppCompatActivity
         int color = extras.getInt(BACKGROUND_COLOR_EXTRA, 0);
 
         findViewById(R.id.container).setBackgroundColor(color);
-
-
-
     }
 }
