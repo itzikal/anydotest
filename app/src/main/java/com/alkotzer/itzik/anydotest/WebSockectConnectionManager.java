@@ -71,7 +71,7 @@ public class WebSockectConnectionManager implements ConnectionManager
 
         mWebSocket = client.newWebSocket(request, mWebSocketListener);
 
-       //   client.dispatcher().executorService().shutdown();
+        client.dispatcher().executorService().shutdown();
     }
 
     @Override
